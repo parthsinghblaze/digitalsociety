@@ -1,0 +1,12 @@
+AIzaSyC622_B0MSnglI7uGeE5ZIxDTIU83_vQyk
+
+
+sign up 
+https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyC622_B0MSnglI7uGeE5ZIxDTIU83_vQyk
+
+sign in 
+https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyC622_B0MSnglI7uGeE5ZIxDTIU83_vQyk
+
+
+member api
+https://digital-society-33dab-default-rtdb.firebaseio.com/
