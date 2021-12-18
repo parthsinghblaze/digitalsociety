@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { useLocation, useNavigate } from "react-router-dom";
+import {
+  editingTheData,
+  submittingFormValue,
+} from "../redux/Memberreducer/memberaction";
 
-function Member(props) {
-  const [formValue, setFormValue] = useState({
-    firstname: "",
-    lastname: "",
-  });
+function Member() {
+  const navigate = useNavigate();
+  const inputFormValue = useSelector((state) => state.member.inputFormValue);
+  const [formValue, setFormValue] = useState(inputFormValue);
 
   const [memberId, setMemberId] = useState("");
+  const dispatch = useDispatch();
 
   const { state } = useLocation();
   useEffect(() => {
@@ -26,42 +31,16 @@ function Member(props) {
   // handline Submit
   function handlingSubmit(e) {
     e.preventDefault();
-    console.log(formValue);
-    fetch(
-      "https://digital-society-33dab-default-rtdb.firebaseio.com/members.json",
-      {
-        method: "POST",
-        body: JSON.stringify({ ...formValue }),
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
-      }
-    )
-      .then((response) => response.json())
-      .then((json) => setFormValue({ firstname: "", lastname: "" }));
+    dispatch(submittingFormValue(formValue));
   }
 
   // handling edit
   function editMember(e) {
     e.preventDefault();
-    fetch(
-      `https://digital-society-33dab-default-rtdb.firebaseio.com/members/${memberId}.json`,
-      {
-        method: "PATCH",
-        body: JSON.stringify({
-          ...formValue,
-        }),
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
-      }
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setFormValue({ firstname: "", lastname: "" });
-        setMemberId("");
-        alert("Success");
-      });
+    dispatch(editingTheData(formValue, memberId));
+    setTimeout(() => {
+      navigate("/allmember");
+    }, 1000);
   }
   return (
     <>

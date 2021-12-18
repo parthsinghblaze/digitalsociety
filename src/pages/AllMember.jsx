@@ -8,19 +8,14 @@ import {
 } from "../redux/Memberreducer/memberaction";
 
 function AllMember() {
-  const [allMember, setAllMember] = useState({});
   const dispatch = useDispatch();
   const allMemberDataTable = useSelector((state) => state.member.allMembers);
-  console.log(allMemberDataTable);
   const navigate = useNavigate();
-
-  // const societyMembers = useSelector((state) => state.member.allMember);
+  const message = useSelector((state) => state.member.msg);
 
   useEffect(() => {
     dispatch(fetchingAllMember());
-    return () => {
-      setAllMember({});
-    };
+    return () => {};
   }, []);
 
   const deleteMember = (key) => {

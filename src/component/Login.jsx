@@ -42,7 +42,8 @@ function Login() {
         } else {
           alert("Email and password are invalid");
         }
-      });
+      })
+      .catch((err) => alert(err));
   }
 
   return (
