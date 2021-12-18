@@ -1,11 +1,19 @@
-import { useNavigate } from "react-router-dom";
-
 import {
   EDIT_MEMBER,
   GET_ALL_MEMBER,
+  HANDLE_INPUT_TEXT,
+  SET_MEMBER_ID,
   SINGLE_DELETE_MEMBER,
   SUBMITING_FORM_VALUE,
 } from "./membertype";
+
+export const handleInputText = (name, value) => {
+  return {
+    type: HANDLE_INPUT_TEXT,
+    name: name,
+    payload: value,
+  };
+};
 
 export const formSubmit = () => {
   return {
@@ -29,6 +37,14 @@ export const deleteMember = () => {
 export const editMember = (memberId, formData) => {
   return {
     type: EDIT_MEMBER,
+  };
+};
+
+export const setMemberId = (memberId, memberValue) => {
+  return {
+    type: SET_MEMBER_ID,
+    payload: memberId,
+    memberValue: memberValue,
   };
 };
 
@@ -73,7 +89,7 @@ export const submittingFormValue = (data) => {
     )
       .then((response) => response.json())
       .then((json) => {
-        dispatch(formSubmit);
+        dispatch(formSubmit());
         alert("Submitted");
       })
       .catch((err) => alert(err));

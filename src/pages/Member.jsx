@@ -3,29 +3,32 @@ import { useSelector, useDispatch } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import {
   editingTheData,
+  handleInputText,
+  setMemberId,
   submittingFormValue,
 } from "../redux/Memberreducer/memberaction";
 
 function Member() {
   const navigate = useNavigate();
-  const inputFormValue = useSelector((state) => state.member.inputFormValue);
-  const [formValue, setFormValue] = useState(inputFormValue);
+  const formValue = useSelector((state) => state.member.inputFormValue);
 
-  const [memberId, setMemberId] = useState("");
+  // const [memberId, setMemberId] = useState("");
   const dispatch = useDispatch();
 
   const { state } = useLocation();
+
+  const memberId = useSelector((state) => state.member.memberId);
+
   useEffect(() => {
     if (state) {
-      setMemberId(state.key);
-      setFormValue(state.member);
+      dispatch(setMemberId(state.key, state.member));
     }
   }, []);
 
   // handling Change
   function handingChange(e) {
     const { name, value } = e.target;
-    setFormValue({ ...formValue, [name]: value });
+    dispatch(handleInputText(name, value));
   }
 
   // handline Submit
@@ -69,7 +72,7 @@ function Member() {
                         placeholder="Enter Member"
                         name="firstname"
                         value={memberId}
-                        onChange={handingChange}
+                        onChange={(e) => handingChange(e)}
                       />
                     </div>
                     <div className="form-group">
@@ -81,7 +84,7 @@ function Member() {
                         placeholder="Enter email"
                         name="firstname"
                         value={formValue.firstname}
-                        onChange={handingChange}
+                        onChange={(e) => handingChange(e)}
                       />
                     </div>
                     <div className="form-group">
