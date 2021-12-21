@@ -9,6 +9,8 @@ import PreLoader from "./component/PreLoader";
 import Member from "./pages/Member";
 import AllMember from "./pages/AllMember";
 import EditMember from "./pages/EditMember";
+import AddMaintenance from "./pages/AddMaintenance";
+import MemberLogin from "./pages/MemberLogin";
 
 function App() {
   return (
@@ -43,7 +45,8 @@ function App() {
             </Privateroute>
           }
         />
-        <Route path="editmember/:memberId" element={<EditMember />} />
+        <Route path="/addmaintenance" element={<AddMaintenance />} />
+        {/* <Route path="editmember/:memberId" element={<EditMember />} /> */}
         {/* <Route
           path="private"
           element={

@@ -34,6 +34,7 @@ function Member() {
   // handline Submit
   function handlingSubmit(e) {
     e.preventDefault();
+    console.log(formValue);
     dispatch(submittingFormValue(formValue));
   }
 
@@ -81,7 +82,7 @@ function Member() {
                         type="text"
                         className="form-control"
                         id="exampleInputEmail1"
-                        placeholder="Enter email"
+                        placeholder="Enter First Name"
                         name="firstname"
                         value={formValue.firstname}
                         onChange={(e) => handingChange(e)}
@@ -93,9 +94,23 @@ function Member() {
                         type="text"
                         className="form-control"
                         id="exampleInputPassword1"
-                        placeholder="Password"
+                        placeholder="Enter Last Name"
                         name="lastname"
                         value={formValue.lastname}
+                        onChange={handingChange}
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="exampleInputPassword1">
+                        Mobile Number
+                      </label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        id=""
+                        placeholder="Mobile Number"
+                        name="mobile_no"
+                        value={formValue.mobile_no}
                         onChange={handingChange}
                       />
                     </div>

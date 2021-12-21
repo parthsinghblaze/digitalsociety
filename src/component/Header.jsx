@@ -15,20 +15,25 @@ function Header() {
 
   return (
     <>
-      <nav class="main-header navbar navbar-expand navbar-white navbar-light navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" data-widget="pushmenu" href="#" role="button">
-                <i class="fas fa-bars"></i>
+      <nav className="main-header navbar navbar-expand navbar-white navbar-light navbar navbar-expand-lg navbar-light bg-light">
+        <div className="container">
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <a
+                className="nav-link"
+                data-widget="pushmenu"
+                href="#"
+                role="button"
+              >
+                <i className="fas fa-bars"></i>
               </a>
             </li>
           </ul>
-          <Link class="navbar-brand" to="/">
+          <Link className="navbar-brand" to="/">
             Navbar
           </Link>
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
@@ -36,41 +41,45 @@ function Header() {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span classNameName="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li class="nav-item">
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li className="nav-item">
                 <a
-                  class="nav-link"
+                  className="nav-link"
                   data-widget="pushmenu"
                   href="#"
                   role="button"
                 >
-                  <i class="fas fa-bars"></i>
+                  <i className="fas fa-bars"></i>
                 </a>
               </li>
-              <li class="nav-item">
-                <Link className="nav-link" aria-current="page" to="/">
+              <li className="nav-item">
+                <Link classNameName="nav-link" aria-current="page" to="/">
                   Home
                 </Link>
               </li>
-              <li class="nav-item">
+              <li className="nav-item">
                 {isLogin == "true" ? (
                   <span
-                    className="nav-link"
+                    classNameName="nav-link"
                     onClick={() => dispatch({ type: LOGOUT })}
                   >
                     Logout
                   </span>
                 ) : (
-                  <Link className="nav-link" aria-current="page" to="/login">
+                  <Link
+                    classNameName="nav-link"
+                    aria-current="page"
+                    to="/login"
+                  >
                     Login
                   </Link>
                 )}
               </li>
-              {/* <li class="nav-item">
-                <Link className="nav-link" aria-current="page" to="/signup">
+              {/* <li className="nav-item">
+                <Link classNameName="nav-link" aria-current="page" to="/signup">
                   Signup
                 </Link>
               </li> */}
@@ -80,13 +89,13 @@ function Header() {
       </nav>
       <Asidepanel />
 
-      {/* <Link className="nav-link" aria-current="page" to="/">
+      {/* <Link classNameName="nav-link" aria-current="page" to="/">
                       Home
                     </Link>
-                    <Link className="nav-link" aria-current="page" to="/login">
+                    <Link classNameName="nav-link" aria-current="page" to="/login">
                       Login
                     </Link>
-                    <Link className="nav-link" aria-current="page" to="/signup">
+                    <Link classNameName="nav-link" aria-current="page" to="/signup">
                       Signup
                     </Link> */}
     </>

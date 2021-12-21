@@ -38,7 +38,7 @@ function Login() {
         console.log(json);
         if (json.idToken) {
           dispatch({ type: USERLOGIN, payload: json.email });
-          navigate("/");
+          navigate("/admin");
         } else {
           alert("Email and password are invalid");
         }

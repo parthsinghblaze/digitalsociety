@@ -15,7 +15,6 @@ function AllMember() {
 
   useEffect(() => {
     dispatch(fetchingAllMember());
-    return () => {};
   }, []);
 
   const deleteMember = (key) => {
@@ -69,7 +68,18 @@ function AllMember() {
                           </span>
                         </td>
                         <td>
-                          <span className="badge badge-primary">Add</span>
+                          {/* <Link to="/addmaintenance"> */}
+                          <span
+                            onClick={() =>
+                              navigate("/addmaintenance", {
+                                state: { key, member },
+                              })
+                            }
+                            className="badge badge-primary"
+                          >
+                            Add
+                          </span>
+                          {/* </Link> */}
                         </td>
                       </tr>
                     );
